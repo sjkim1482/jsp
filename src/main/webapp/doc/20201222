@@ -1,0 +1,110 @@
+https://meet.google.com/eqh-azgw-bdz
+
+1. 개발환경 구축
+2. 웹 아키텍쳐
+3. jsp / servlet, spring, spring boot()
+4. 배치(일괄처리)
+
+시스템을 나누는 구조
+1. Clirent Server 아키텍쳐
+2. web 아키텍쳐
+
+전산시스템 구조(3가지)
+1. Presentation : 화면
+2. Business logic : 로직
+3. Data : data 저장
+
+2-tier : 주로 병원에서 사용
+
+포트번호
+http : 80
+https : 443
+
+Servlet : ServerProgram + let(작다) = 작은 서버 프로그램
+Applet : Application + let = 작은 응용프로그램
+
+
+Web Application Server == Web Container == Servlet Container
+
+Web Application Server : WAS(jboss, IBM 웹스피어)
+	Servlet Container + EJB Container
+Servlet Container[Web Container] (tomcat)
+
+메일 => SMTP로 주고받음 => 아스키코드만 주고받음 => 외국어나 다른 문자 전송시 MIME이용
+
+
+
+
+
+
+
+프로그램 구동 환경 설치
+https://spring.io/
+https://spring.io/tools
+윈도우 64비트 다운
+압축 풀기 2번
+실행
+maven 설정
+maven 프로젝트 만들기 Create a simple ~~ 체크(필수)
+
+
+Maven Project
+Group Id : 해당 프로젝트를 진행하는 회사에 대한정보  
+	일반적으로 회사 도메인 역순으로 기술
+	naver.com ==> com.naver
+	google.com ==> com.google
+	ddit.or.kr ==> kr.or.ddit
+
+Artifact Id : Group Id에 해당하는 회사에서 진행하는 프로젝트명
+	google : GMAIL, GOOGLE DRIVE
+
+version : 프로젝트의 버전
+	대.중.소 ==> 3.5.2
+
+war 설정
+
+jar : Java ARchive : 클래스들을 묶어 놓은 파일, 압축파일
+
+class, html. jsp, image, css, javascript
+war : Web ARchive : 웹 프로그램을 묶어 놓은 파일
+	tomcat의 webapps 폴더에 war 파일을 복사 해놓고 톰캣을 기동하면
+	war 파일을 톰캣이 자동으로 압축을 해제하여 웹 어플리케이션이 서비스 되도록 한다.
+
+
+maven 은
+자바는 main
+자바는 아닌데 쓸때 필요한거 resources
+test는 개발과정에서 내코드가 잘되는지 확인용
+
+problems에서 보통 많이 오류 확인
+webapp 폴더아래
+web.inf?
+web.xml
+
+
+프로페티스 -> 프로젝트 펙트=> 다이나믹 : 3.0 => 자바 : 1.8
+
+
+
+프로젝트 우클릭 java ee tools -> 제네레이터 클릭
+
+컨트롤 쉬프트 T => 해당 클래스 찾기
+컨트롤 쉬프트 R => 해당이름 파일찾기
+
+pom : Project Object Model - 프로젝트에 대한 설정 정보
+	해당 프로젝트를 만든 회사
+	프로젝트의 이름
+	프로젝트의 버전
+	프로젝트에서 필요로하는 의존성(dependency) - 라이브러리(ojdbc6.jar)
+pom.xml
+
+
+
+
+
+
+
+
+
+
+
