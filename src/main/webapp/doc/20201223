@@ -42,9 +42,17 @@ sh : 리눅스나 유닉스용
 	7. 설치된 tomcat의 webapps 폴더에 war 파일 복사
 
 
+mvn 명령어를 실행 할때는 pom.xml이 존재하는 폴더로 이동해서 실행
+mvn clean : 메이븐 빌드과정에서 생성된 결과물(target) 삭제
+mvn package : java -> class 컴파일, war 파일로 생성
+			  artifact-version.war
 
 
+배포
+만들어진 war 파일을 tomcat의 webapps 폴더에 복사
+단 컨텍스트 패스(웹 어플리케이션의 이름)을 고려해서 war 파일의 이름을 적절하게 수정
 
+톰캣 실행방법
 
 
 
