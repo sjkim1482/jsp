@@ -62,6 +62,29 @@ public class LoginController extends HttpServlet {
 		while(it.hasNext()) {
 			logger.debug("{}",map.get(it.next()));
 		}
+		
+		//로그인 성공시 main.jsp로 이동
+		//로그인 프로레스
+		//db의 저장된 사용자 정보와 일치하느지 검증해야하나, db 연동이 아직 준비되지 않은 관계록
+		//userid가 brown일때 비밀번호가 brownpass 인경우에 한해 로그인이 성공되었다고 판단
+		//로그인 성공시 : main.jsp로 forward
+		//로그인 실패시 : login.jsp로 redirect
+		// redirect : 클라이언트에게 정해진 주소로 재요청 할것을 지시
+		//				
+		String userid = req.getParameter("userid");
+		String pass = req.getParameter("pass");
+		
+		
+		if(userid!=null&&pass!=null) {
+			if(userid.equals("brown")&&pass.equals("brownpass")) {
+				req.getRequestDispatcher(req.getContextPath()+"/main.jsp").forward(req, resp);
+			}else {
+				resp.sendRedirect(req.getContextPath()+"/login.jsp");
+			}
+		}else {
+			resp.sendRedirect(req.getContextPath()+"/login.jsp");
+		}
+		
 	}
 }
 
