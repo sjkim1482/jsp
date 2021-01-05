@@ -10,11 +10,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Signin Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="<%=request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
-
+    <title>Signin Template for Bootstrap **</title>
+	<%@include file="/common/common_lib.jsp" %>
+    
     <!-- Custom styles for this template -->
     <link href="<%=request.getContextPath() %>/css/signin.css" rel="stylesheet">
 
