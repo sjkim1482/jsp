@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,15 +21,26 @@ import org.slf4j.LoggerFactory;
 public class LoginController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 	//요청 메소드 관련없이 서블릿이 동작하게 하려면??
 	//get으로 보내든, post로 보내든
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		// 클라이언트가 서버로 요청을 보낼시 브라우저에 의해 같이 전송된 쿠키 정보 확인
+		Cookie[] cookies = req.getCookies();
+		for(Cookie cookie : cookies ) {
+			logger.debug("cookie.getName() : {} / cookie.getValue() : {}",cookie.getName(),cookie.getValue());
+			
+			if(cookie.getName().equals("userid")) {
+				Cookie newServerCookie = new  Cookie("newServerCookie", "testValue");
+				resp.addCookie(newServerCookie);				
+			}
+		}
 		// 사용자가 userid, pass 파라미터를 전송 했다는 가정으로 개발
-	
+		
 		// 하나의 파라미터 확인
 		logger.debug("하나의 파라미터 확인");
 		logger.debug("req.getParameter(\"userid\") : {}", req.getParameter("userid"));
