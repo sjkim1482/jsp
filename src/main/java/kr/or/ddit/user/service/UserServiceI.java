@@ -15,4 +15,6 @@ public interface UserServiceI {
 
 	//user 페이징 처리 후 조회
 	Map<String, Object> selectPagingUser(PageVo vo);
+	
+	
 }

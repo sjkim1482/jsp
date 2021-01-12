@@ -60,5 +60,6 @@ public class UserDao implements UserDaoI {
 		sqlSession.close();
 		return userCnt;
 	}
+
 	
 }
