@@ -22,8 +22,34 @@
 <link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<%
+	UserVo user = (UserVo)request.getAttribute("userInfo");
+%>
 <script>
 	$(function() {
+		<%
+			if(user!=null){
+		%>
+				var userId = "<%=user.getUserid()%>";
+				var userNm = "<%=user.getUsernm()%>";
+				var userPass = "<%=user.getPass()%>";
+				var userAlias = "<%=user.getAlias()%>";
+				var userAddr1 = "<%=user.getAddr1()%>";
+				var userAddr2 = "<%=user.getAddr2()%>";
+				var userZip = "<%=user.getZipcode()%>";
+				
+	 			$("#userId").val(userId);
+				$("#userNm").val(userNm);
+				$("#userPass").val(userPass);
+				$("#userAlias").val(userAlias);
+				$("#userAddr1").val(userAddr1);
+				$("#userAddr2").val(userAddr2);
+				$("#userZip").val(userZip);
+		<%
+			}
+		%>
+		
+		idcheck = false;
 		// 주소검색 버튼이 클릭 되었을 때 다음주소 api 팝업을 연다
 		$("#addrBtn").on("click",function(){
 		    new daum.Postcode({
@@ -39,6 +65,39 @@
 		    }).open();
 			
 		})
+		
+		$("#idCheckBtn").on("click",function(){
+			path = "<%=request.getContextPath()%>";
+			userId = $("#userId").val();
+			$.ajax({
+				url : path+"/userCheck",
+				type : "post",
+				data : {"userId" : userId},
+				success : function (res) {
+					if(res.cnt==1){
+						alert("중복된 아이디입니다.")
+						idcheck = false;
+					}else{
+						alert("사용가능 아이디입니다.")
+						idcheck = true;
+					}
+				
+				},
+				error : function(xhr) {
+					alert("상태 : " + xhr.status)
+				},
+				dataType : "json"
+			})
+		})
+		$("#regBtn").on("click",function(){
+			if(idcheck){
+				$("#regfrm").submit();
+			}else{
+				alert("아이디 중복검사를 확인하세요");
+			}
+		
+		})
+		
 	})
 </script>
 
@@ -81,16 +140,21 @@
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-				<form method="post" class="form-horizontal" role="form" action="<%=request.getContextPath()%>/userModify">
+				<form method="post" class="form-horizontal" id="regfrm" role="form" action="<%=request.getContextPath()%>/registUser">
 	
 
 					
 					
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 							<input type="text" class="form-control" id="userId" name="userId"
 								placeholder="아이디입력">
+						</div>
+						<div class="col-sm-2">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="button" id= "idCheckBtn" class="btn btn-default">중복 확인</button>
+							</div>
 						</div>
 					</div>
 					
@@ -157,7 +221,7 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">사용자 수정</button>
+							<button type="button" id="regBtn" class="btn btn-default">사용자 등록</button>
 						</div>
 					</div>
 				</form>

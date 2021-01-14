@@ -37,6 +37,18 @@ public class UserService implements UserServiceI {
 		return map;
 	}
 
+	@Override
+	public int modifyUser(UserVo userVo) {
+		// TODO Auto-generated method stub
+		return dao.modifyUser(userVo);
+	}
+
+	@Override
+	public int registUser(UserVo userVo) {
+		// TODO Auto-generated method stub
+		return dao.registUser(userVo);
+	}
+
 	
 
 }

@@ -2,6 +2,7 @@ package kr.or.ddit.user.repository;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public class UserServicTest {
 		List<UserVo> userList = userService.selectAllUser();
 
 		/*** Then ***/
-		assertEquals(16, userList.size());
+		assertEquals(16*4, userList.size());
 	}
 
 	// 사용자 아이디를 이용하여 특정 사용자 정보 조회
@@ -73,7 +74,22 @@ public class UserServicTest {
 		/*** Then ***/
 
 		assertEquals(5, userList.size());
-		assertEquals(4, page);
+		assertEquals(13, page);
+	}
+	
+	@Test
+	public void userModifyServiceTest() {
+		/***Given***/
+		UserService userService = new UserService();
+
+		UserVo userVo = new UserVo("ddit","대덕인재", "dditpass",new Date(), "개발원 m","대전시 중구 중앙로 76",
+				"4층 대덕인재개발원","34940");
+
+		/***When***/
+		int updateCnt = userService.modifyUser(userVo);
+
+		/***Then***/
+		assertEquals(1, updateCnt);
 	}
 
 }

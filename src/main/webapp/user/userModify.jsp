@@ -81,16 +81,14 @@
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
+				<%UserVo user = (UserVo)request.getAttribute("user"); %>
 				<form method="post" class="form-horizontal" role="form" action="<%=request.getContextPath()%>/userModify">
-	
+					<input type="hidden" name="userid" value="<%=user.getUserid()%>">
 
-					
-					
 					<div class="form-group">
-						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
+						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="아이디입력">
+							<label class="control-label"><%=user.getUserid() %></label>
 						</div>
 					</div>
 					
@@ -99,7 +97,7 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="이름입력">
+								value="<%=user.getUsernm()%>">
 						</div>
 					</div>
 					
@@ -107,7 +105,7 @@
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAlias" name="userAlias"
-								 placeholder="별명입력">
+								value="<%=user.getAlias() %>" >
 						</div>
 					</div>
 					
@@ -115,17 +113,23 @@
 						<label for="userNm" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="userPass" name="userPass"
-								placeholder="비밀번호 입력">
+								value="<%=user.getPass()%>">
 						</div>
 					</div>
 					
-				
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">등록일시</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="userRegDt" name="userRegDt"
+								value="<%=user.getReg_dt_fmt() %>">
+						</div>
+					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="userAddr1" name="userAddr1"
-								placeholder="도로주소" readonly>
+								value="<%=user.getAddr1()%>" placeholder="도로주소" readonly>
 						</div>
 						<div class="col-sm-2">
 							<div class="col-sm-offset-2 col-sm-10">
@@ -141,7 +145,7 @@
 						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAddr2" name="userAddr2"
-								 placeholder="상세주소">
+								value="<%=user.getAddr2()%>" placeholder="상세주소">
 						</div>
 					</div>
 					
@@ -149,7 +153,7 @@
 						<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userZip" name="userZip"
-								 placeholder="우편번호" readonly>
+								value="<%=user.getZipcode()%>" placeholder="우편번호" readonly>
 						</div>
 					</div>
 					

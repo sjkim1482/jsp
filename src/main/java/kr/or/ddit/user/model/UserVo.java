@@ -3,6 +3,10 @@ package kr.or.ddit.user.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import lombok.Getter;
+import lombok.Setter;
+
+
 public class UserVo {
 	private String userid;
 	private String usernm;
@@ -12,6 +16,23 @@ public class UserVo {
 	private String addr1  ;
 	private String filename;
 	private String realfilename;
+	private String addr2  ;
+	private String zipcode;
+	
+	//대다수의 framework는 기본 생성자를 필요로 한다.
+	public UserVo() {}
+	
+	public UserVo(String userid, String usernm, String pass, Date reg_dt, String alias, String addr1,
+			String addr2, String zipcode) {
+		this.userid = userid;
+		this.usernm = usernm;
+		this.pass = pass;
+		this.reg_dt = reg_dt;
+		this.alias = alias;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.zipcode = zipcode;
+	}
 	
 	public String getFilename() {
 		return filename;
@@ -53,12 +74,8 @@ public class UserVo {
 		this.zipcode = zipcode;
 	}
 
-	private String addr2  ;
-	private String zipcode;
 	
-	//대다수의 framework는 기본 생성자를 필요로 한다.
-	public UserVo() {}
-	
+
 	//getter, setter, toString
 	public String getUserid() {
 		return userid;

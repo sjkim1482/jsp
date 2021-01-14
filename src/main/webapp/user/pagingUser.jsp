@@ -117,35 +117,55 @@
 			</table>
 		</div>
 
-		<a class="btn btn-default pull-right">사용자 등록</a>
+		<a class="btn btn-default pull-right" onclick="location.href='<%=request.getContextPath()%>/registUser'">사용자 등록</a>
 
 		<div class="text-center">
 
 			<ul class="pagination">
 				<%  PageVo nowPage = (PageVo)request.getAttribute("pageVo");
-					int pagenation = (Integer)request.getAttribute("pagination");%>
-				<li class="prev">
-				<a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=nowPage.getPageSize()%>">«</a>
-				</li>
-			
+					int pagenation = (Integer)request.getAttribute("pagination");
+					int startPage = (Integer)request.getAttribute("startPage");
+					int endPage = (Integer)request.getAttribute("endPage");
+				%>
+					<li class="prev">
+						<a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=nowPage.getPageSize()%>">«</a>
+					</li>
+				<%
+					if(startPage!=1){
+				%>
+						<li><a href="<%=request.getContextPath()%>/pagingUser?page=1&pageSize=<%=nowPage.getPageSize()%>">1</a></li>
+				<%
+					}
+				%>
 				<% 
 					
-					for(int i = 1; i <= pagenation; i++){
+					for(int i = startPage; i <= endPage; i++){
+						if(startPage!=1&& i==startPage){
+				%>
+							<li><span>...</span></li>
+				<%
+						}
 						if(i == nowPage.getPage()){
 				%>
-					<li class="active"><span><%=i %></span></li>
+						<li class="active"><span><%=i %></span></li>
 				<%
 						}else{
 				%>
-					<li><a href="<%=request.getContextPath()%>/pagingUser?page=<%=i %>&pageSize=<%=nowPage.getPageSize()%>"><%=i %></a></li>
+						<li><a href="<%=request.getContextPath()%>/pagingUser?page=<%=i %>&pageSize=<%=nowPage.getPageSize()%>"><%=i %></a></li>
 				
 				<%
 						}
 					}
+					if(endPage!=pagenation){
 				%>
-				<li class="next">
-				<a href="<%=request.getContextPath()%>/pagingUser?page=<%=pagenation %>&pageSize=<%=nowPage.getPageSize()%>">»</a>
-				</li>
+						<li><span>...</span></li>
+						<li><a href="<%=request.getContextPath()%>/pagingUser?page=<%=pagenation %>&pageSize=<%=nowPage.getPageSize()%>"><%=pagenation %></a></li>
+				<%
+					}
+				%>
+					<li class="next">
+						<a href="<%=request.getContextPath()%>/pagingUser?page=<%=pagenation %>&pageSize=<%=nowPage.getPageSize()%>">»</a>
+					</li>
 			</ul>
 		</div>
 	</div>

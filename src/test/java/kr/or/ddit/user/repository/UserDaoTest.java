@@ -2,6 +2,7 @@ package kr.or.ddit.user.repository;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -23,7 +24,7 @@ public class UserDaoTest {
 		List<UserVo> userList = userDao.selectAllUser();
 
 		/***Then***/
-		assertEquals(16, userList.size());
+		assertEquals(16*4, userList.size());
 	}
 	
 	// 사용자 아이디를 이용하여 특정 사용자 정보 조회
@@ -64,9 +65,40 @@ public class UserDaoTest {
 		int userCnt = userDao.selectAllUserCount();
 		/***Then***/
 		
-		assertEquals(16, userCnt);
+		assertEquals(16*4, userCnt);
 	}
 	
+	@Test
+	public void modifyUserTest() {
+		/***Given***/
+		UserDao userDao = new UserDao();
+		//userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
+		UserVo userVo = new UserVo("ddit","대덕인재", "dditpass",new Date(), "개발원 m","대전시 중구 중앙로 76",
+				"4층 대덕인재개발원","34940");
+
+		/***When***/
+		int updateCnt = userDao.modifyUser(userVo);
+
+		/***Then***/
+		assertEquals(1, updateCnt);
+		
+	}
+	
+	@Test
+	public void registUserTest() {
+		/***Given***/
+		UserDao userDao = new UserDao();
+		//userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
+		UserVo userVo = new UserVo("nnnn","대덕인재", "dditpass",new Date(), "개발원 m","대전시 중구 중앙로 76",
+				"4층 대덕인재개발원","34940");
+
+		/***When***/
+		int intsertCnt = userDao.registUser(userVo);
+
+		/***Then***/
+		assertEquals(1, intsertCnt);
+		
+	}
 	
 
 }

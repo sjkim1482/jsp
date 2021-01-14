@@ -16,5 +16,8 @@ public interface UserServiceI {
 	//user 페이징 처리 후 조회
 	Map<String, Object> selectPagingUser(PageVo vo);
 	
+	//사용자 정보 수정
+	int modifyUser(UserVo userVo);
 	
+	int registUser(UserVo userVo);
 }

@@ -57,6 +57,11 @@ public class PagingUser extends HttpServlet {
 		 */
 		UserServiceI service = new UserService();
 		
+		
+		
+		
+		
+		
 		PageVo vo = new PageVo(page,pageSize);
 		Map<String, Object> map = service.selectPagingUser(vo);
 		
@@ -64,10 +69,41 @@ public class PagingUser extends HttpServlet {
 		int userCnt = (int)map.get("userCnt");
 		int pagination = (int)Math.ceil((double)userCnt/pageSize);
 		
+		int startPage = 1;
+		int endPage = pagination;
+		if((page-2)>2) {
+			if(page==pagination||page==pagination-1||page==pagination-3) {
+				startPage = pagination-4;
+			}else{
+				startPage = page-2;
+			}
+			if(startPage+4<pagination) {
+				endPage = startPage+4;
+			}
+		}
+		logger.debug("start : {}",startPage);
+		if((page+2)<pagination-1) {
+			if(page==1) {
+				endPage = page+4;
+			}else if(page == 2) {
+				endPage = page+3;
+			}else if(page == 4){
+				endPage = page+1;
+			}else {
+				endPage = page+2;
+			}
+			if(endPage-4>page) {
+				startPage = endPage-4;
+			}
+		}
+		logger.debug("end : {}",endPage);
 		
 		request.setAttribute("userList", userList);
 		request.setAttribute("pagination", pagination);
 		request.setAttribute("pageVo", vo);
+		
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
 		
 		request.getRequestDispatcher("user/pagingUser.jsp").forward(request, response);
 		
