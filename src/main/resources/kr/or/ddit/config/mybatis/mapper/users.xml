@@ -48,4 +48,9 @@
   	VALUES(#{userid},#{usernm},#{pass},#{reg_dt},#{alias},#{addr1},#{addr2},#{zipcode})
   </insert>
   
+  <delete id="deleteUser" parameterType="String">
+  	DELETE users
+  	WHERE userid = #{userid}
+  </delete>
+  
 </mapper>
