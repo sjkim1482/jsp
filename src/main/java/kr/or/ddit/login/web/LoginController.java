@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
 		// session에 데이터베이스에서 조회한 사용자 정보(userVo)를 저장
 		
 		if( user !=null && pass.equals(user.getPass())) {
-			req.getRequestDispatcher(req.getContextPath()+"/main.jsp").forward(req, resp);
+			req.getRequestDispatcher("/main.jsp").forward(req, resp);
 		}else {
 			resp.sendRedirect(req.getContextPath()+"/login.jsp");
 		}

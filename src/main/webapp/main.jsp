@@ -13,13 +13,13 @@
 
 <title>Jsp</title>
 
-<%-- <script src="<%=request.getContextPath() %>/js/jquery-1.12.4.js"></script> --%>
+<%-- <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script> --%>
 <%@include file="/common/common_lib.jsp" %>
 
 <!-- Custom styles for this template -->
-<link href="<%=request.getContextPath()%>/css/dashboard.css"
+<link href="${pageContext.request.contextPath}/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css"
+<link href="${pageContext.request.contextPath}/css/blog.css"
 	rel="stylesheet">
 </head>
 

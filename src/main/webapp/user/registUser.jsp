@@ -14,12 +14,12 @@
 <title>Jsp</title>
 
 <!-- Bootstrap core CSS -->
-<script src="<%=request.getContextPath()%>/js/jquery-1.12.4.js"></script>
-<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 <!-- Custom styles for this template -->
-<link href="<%=request.getContextPath()%>/css/bootstrap.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <%
@@ -27,7 +27,7 @@
 %>
 <script>
 	$(function() {
-		<%
+		<%-- <%
 			if(user!=null){
 		%>
 				var userId = "<%=user.getUserid()%>";
@@ -47,9 +47,9 @@
 				$("#userZip").val(userZip);
 		<%
 			}
-		%>
+		%> --%>
 		
-		idcheck = false;
+		idcheck = true;
 		// 주소검색 버튼이 클릭 되었을 때 다음주소 api 팝업을 연다
 		$("#addrBtn").on("click",function(){
 		    new daum.Postcode({
@@ -67,7 +67,7 @@
 		})
 		
 		$("#idCheckBtn").on("click",function(){
-			path = "<%=request.getContextPath()%>";
+			path = "${pageContext.request.contextPath}";
 			userId = $("#userId").val();
 			$.ajax({
 				url : path+"/userCheck",
@@ -139,9 +139,9 @@
 				<%@include file="/common/left.jsp" %>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-				<form method="post" class="form-horizontal" id="regfrm" role="form" action="<%=request.getContextPath()%>/registUser">
-	
+				contextPath el
+				<form method="post" class="form-horizontal" id="regfrm" role="form" action="${pageContext.request.contextPath}/registUser">
+																							
 
 					
 					
@@ -149,7 +149,7 @@
 						<label for="userId" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="아이디입력">
+								placeholder="아이디입력" value="${param.userId}">
 						</div>
 						<div class="col-sm-2">
 							<div class="col-sm-offset-2 col-sm-10">
@@ -163,7 +163,7 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="이름입력">
+								placeholder="이름입력" value="${param.userNm}">
 						</div>
 					</div>
 					
@@ -171,7 +171,7 @@
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAlias" name="userAlias"
-								 placeholder="별명입력">
+								 placeholder="별명입력" value="${param.userAlias}">
 						</div>
 					</div>
 					
@@ -179,7 +179,7 @@
 						<label for="userNm" class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="userPass" name="userPass"
-								placeholder="비밀번호 입력">
+								placeholder="비밀번호 입력" value="${param.userPass}">
 						</div>
 					</div>
 					
@@ -189,7 +189,7 @@
 						<label for="userNm" class="col-sm-2 control-label">도로주소</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="userAddr1" name="userAddr1"
-								placeholder="도로주소" readonly>
+								placeholder="도로주소" readonly value="${param.userAddr1}">
 						</div>
 						<div class="col-sm-2">
 							<div class="col-sm-offset-2 col-sm-10">
@@ -205,7 +205,7 @@
 						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userAddr2" name="userAddr2"
-								 placeholder="상세주소">
+								 placeholder="상세주소" value="${param.userAddr2}">
 						</div>
 					</div>
 					
@@ -213,7 +213,7 @@
 						<label for="userNm" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userZip" name="userZip"
-								 placeholder="우편번호" readonly>
+								 placeholder="우편번호" readonly value="${param.userZip}">
 						</div>
 					</div>
 					
