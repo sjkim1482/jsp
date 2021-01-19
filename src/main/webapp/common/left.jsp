@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <ul class="nav nav-sidebar">
 	<li class="active"><a href="#">Main <span class="sr-only">(current)</span></a></li>
-	<li class="active"><a href="${pageContext.request.contextPath}/allUser">전체 사용자 조회</a></li>
-	<li class="active"><a href="${pageContext.request.contextPath}/pagingUser">사용자 페이징 리스트</a></li>
-	<li class="active"><a href="${pageContext.request.contextPath}/allEmp">직원</a></li>
+	<li class="active"><a href="${cp}/allUser">전체 사용자 조회</a></li>
+	<li class="active"><a href="${cp}/pagingUser">사용자 페이징 리스트</a></li>
+	<li class="active"><a href="${cp}/allEmp">직원</a></li>
 	<%--
 		localhost/pagingUser?page=1&pageSize=5 로 요청시
 		pagingUser.jsp에서 페이지에 해당하는 사용자 5명만 출력 되도록 개발

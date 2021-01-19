@@ -21,8 +21,8 @@
 <!-- <link href="bootstrap.css" rel="stylesheet"> -->
 <!-- Bootstrap core CSS -->
 <!-- <script src="bootstrap.js"></script>Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${cp}/css/dashboard.css" rel="stylesheet">
+<link href="${cp}/css/blog.css" rel="stylesheet">
 
 <script>
 //문서 로딩이 완료되고 나서 실행되는 영역
@@ -42,7 +42,7 @@
 </head>
 
 <body>
-	<form id="frm" action="${pageContext.request.contextPath}/user">
+	<form id="frm" action="${cp}/user">
 		<input type="hidden" id="userid" name="userid" value="">
 	</form>
 	<%@ include file="/common/header.jsp" %> 
@@ -75,16 +75,16 @@
 			</table>
 		</div>
 
-		<a class="btn btn-default pull-right" onclick="location.href='${pageContext.request.contextPath}/registUser'">사용자 등록</a>
+		<a class="btn btn-default pull-right" onclick="location.href='${cp}/registUser'">사용자 등록</a>
 
 		<div class="text-center">
 
 			<ul class="pagination">
 					<li class="prev">
-						<a href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
+						<a href="${cp}/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
 					</li>
 					<c:if test="${startPage!=1 && startPage!=0}">
-						<li><a href="${pageContext.request.contextPath}/pagingUser?page=1&pageSize=${pageVo.pageSize}">1</a></li>
+						<li><a href="${cp}/pagingUser?page=1&pageSize=${pageVo.pageSize}">1</a></li>
 					</c:if>
 					<c:forEach begin="${startPage}" end="${endPage}" var="i">
 						<c:if test="${startPage!=1 && i==startPage}">
@@ -96,7 +96,7 @@
 							</c:when>
 							<c:otherwise>
 								<c:if test="${i != 0}">
-									<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>	
+									<li><a href="${cp}/pagingUser?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>	
 								</c:if>
 							</c:otherwise>
 						</c:choose>
@@ -104,10 +104,10 @@
 			
 						<c:if test="${endPage!=pagination}">
 							<li><span>...</span></li>
-							<li><a href="${pageContext.request.contextPath}/pagingUser?page=${pagination}&pageSize=${pageVo.pageSize}">${pagination}</a></li>
+							<li><a href="${cp}/pagingUser?page=${pagination}&pageSize=${pageVo.pageSize}">${pagination}</a></li>
 						</c:if>
 					<li class="next">
-						<a href="${pageContext.request.contextPath}/pagingUser?page=${pagination}&pageSize=${pageVo.pageSize}">»</a>
+						<a href="${cp}/pagingUser?page=${pagination}&pageSize=${pageVo.pageSize}">»</a>
 					</li>
 			</ul>
 		</div>

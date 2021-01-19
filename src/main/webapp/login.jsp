@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     
     <!-- Custom styles for this template -->
-    <link href="${pageContext.request.contextPath}/css/signin.css" rel="stylesheet">
+    <link href="${cp}/css/signin.css" rel="stylesheet">
 	<script>
 	
 		function getCookieValue(cookieStr, cookieName){
@@ -91,8 +91,8 @@
   <body>
 
     <div class="container">
-		UNT_CD : ${param.UNT_CD} / <%=request.getParameter("UNT_CD") %>
-      <form class="form-signin" id="frm" action="${pageContext.request.contextPath}/loginController" method="post">
+		cp : ${cp} / <%=application.getAttribute("cp") %>
+      <form class="form-signin" id="frm" action="${cp}/loginController" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">userid</label>
         <input type="text" name="userid"  id="userid" class="form-control" placeholder="아이디 입력" required autofocus>

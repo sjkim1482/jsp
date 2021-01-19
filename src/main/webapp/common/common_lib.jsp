@@ -4,8 +4,8 @@
 
 <%-- common_lib.jsp의 내용을 지금 기술되는 부분에 코드를 복사해서 붙여 넣기 --%>
 <!-- Bootstrap core CSS -->
-<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Bootstrap core CSS -->
-<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+<script src="${cp}/js/bootstrap.js"></script>

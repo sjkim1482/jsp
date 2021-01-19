@@ -15,12 +15,12 @@
 <title>Jsp</title>
 
 <!-- Bootstrap core CSS -->
-<script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+<script src="${cp}/js/jquery-1.12.4.js"></script>
+<script src="${cp}/js/bootstrap.js"></script>
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${cp}/css/bootstrap.css" rel="stylesheet">
+<link href="${cp}/css/dashboard.css" rel="stylesheet">
+<link href="${cp}/css/blog.css" rel="stylesheet">
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -82,7 +82,7 @@
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-				<form method="post" class="form-horizontal" role="form" action="${pageContext.request.contextPath}/userModify">
+				<form method="post" class="form-horizontal" role="form" action="${cp}/userModify">
 					<input type="hidden" name="userid" value="${user.userid}">
 
 					<div class="form-group">

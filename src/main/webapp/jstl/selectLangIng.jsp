@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
+<script src="${cp}/js/jquery-1.12.4.js"></script>
 <script>
 	$(function() {
 		$(".select").on("change", function() {
@@ -18,7 +18,7 @@
 </script>
 </head>
 <body>
-	<form id="frm" action="${pageContext.request.contextPath}/changeLang">
+	<form id="frm" action="${cp}/changeLang">
 		<select class="select" name="lang">
 			<option value="ko" ${kor}>한국어</option>
 			<option value="en" ${eng}>english</option>

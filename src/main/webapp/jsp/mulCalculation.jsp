@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/mulCalculation" method="post">
+	<form action="${cp}/mulCalculation" method="post">
 		<input type="text" name="start" > *
 		<input type="text" name="end" >
 		<input type="submit" value="결과">

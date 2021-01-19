@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${cp}/sumCalculation" method="post">
-		<input type="text" name="start" > 에서
-		<input type="text" name="end" >
-		<input type="submit" value="까지의 합은">
-	</form>
+	user : set ${USER_SET}
 </body>
 </html>

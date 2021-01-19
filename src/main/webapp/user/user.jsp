@@ -15,26 +15,26 @@
 
 <title>Jsp</title>
 
-<script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
-<link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet">
+<script src="${cp}/js/jquery-1.12.4.js"></script>
+<link href="${cp}/css/bootstrap.css" rel="stylesheet">
 <!-- Bootstrap core CSS -->
-<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+<script src="${cp}/js/bootstrap.js"></script>
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
+<link href="${cp}/css/dashboard.css" rel="stylesheet">
+<link href="${cp}/css/blog.css" rel="stylesheet">
 
 <script>
 //문서로딩 완료
 	$(function(){
 		$("#modifyBtn").on("click",function(){
 			$("#frm").attr("method","GET");
-			$("#frm").attr("action","${pageContext.request.contextPath}/userModify");
+			$("#frm").attr("action","${cp}/userModify");
 			$("#frm").submit();
 		});
 		
 		$("#deleteBtn").on("click",function(){
 			$("#frm").attr("method","POST");
-			$("#frm").attr("action","${pageContext.request.contextPath}/deleteUser");
+			$("#frm").attr("action","${cp}/deleteUser");
 			$("#frm").submit();
 		});
 	});
@@ -85,7 +85,7 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img src="${pageContext.request.contextPath}/profile/${user.userid}.png">
+							<img src="${cp}/profile/${user.userid}.png">
 						</div>
 					</div>
 								
