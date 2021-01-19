@@ -26,7 +26,7 @@ public class UserModify extends HttpServlet {
 	UserServiceI userService = new UserService();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		/* request.setCharacterEncoding("UTF-8"); */
 		
 		String userid = request.getParameter("userid");
 		
@@ -42,8 +42,10 @@ public class UserModify extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//파라미터를 읽기 전에 실행
 		//servlet의 doPost메소드 마다 실행 필요 ==> Filter
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
+		/*
+		 * request.setCharacterEncoding("UTF-8");
+		 * response.setCharacterEncoding("UTF-8");
+		 */
 		
 		
 		String userid = request.getParameter("userid");
