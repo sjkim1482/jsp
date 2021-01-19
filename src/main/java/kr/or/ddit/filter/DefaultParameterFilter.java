@@ -8,33 +8,33 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class SetCharEncoding implements Filter {
-	private static final Logger logger = LoggerFactory.getLogger(SetCharEncoding.class);
-
+@WebFilter("/*")
+public class DefaultParameterFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
-		logger.debug("encoding init()");
+		
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		request.setCharacterEncoding("UTF-8");
-		logger.debug("encoding dofilter()");
-		chain.doFilter(request, response);
+		//인자로 들어온 request 객체를 이용하여 wrapper로 만들고
+		//chain.doFilter 메소드를 이용하여 다른 필터나 서블릿으로 요청을 전달할때
+		//wrapper 클래스를 전달
+		
+		DefaultParameterRequestWrapper wrapper = new DefaultParameterRequestWrapper((HttpServletRequest)request);
+		
+		chain.doFilter(wrapper, response);
 		
 	}
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		logger.debug("encoding destroy()");
+		
 	}
 
 }

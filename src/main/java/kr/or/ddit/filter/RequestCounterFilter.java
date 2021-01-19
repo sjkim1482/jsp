@@ -66,7 +66,7 @@ public class RequestCounterFilter implements Filter {
 	@Override
 	public void destroy() {
 		
-		
+		logger.debug("map destroy()");
 	}
 
 }
